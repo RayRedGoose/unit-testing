@@ -43,4 +43,26 @@ describe("Product", function () {
     oil.checkout(2);
     assert.equal(oil.quantity, 8);
   });
+
+  it.skip("should show different stock info based on quantity", function () {
+    var oil = new Product("Mobil 1: Advanced Full Synthetic");
+    var firstMessage = oil.checkStockItems();
+    assert.equal(
+      firstMessage,
+      "Sorry! Mobil 1: Advanced Full Synthetic is out of stock."
+    );
+
+    oil.restock({ items: 9 });
+    var secondMessage = oil.checkStockItems();
+    assert.equal(oil.quantity, 9);
+    assert.equal(
+      secondMessage,
+      "Mobil 1: Advanced Full Synthetic is running low. Only 9 items left."
+    );
+
+    oil.restock({ items: 1 });
+    assert.equal(oil.quantity, 10);
+    var thirdMessage = oil.checkStockItems();
+    assert.equal(thirdMessage, "Mobil 1: Advanced Full Synthetic is in stock.");
+  });
 });
