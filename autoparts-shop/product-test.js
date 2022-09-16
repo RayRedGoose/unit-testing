@@ -23,4 +23,24 @@ describe("Product", function () {
 
     assert.equal(oil.quantity, 0);
   });
+
+  it.skip("should restock items", function () {
+    var oil = new Product("Mobil 1: Advanced Full Synthetic");
+
+    oil.restock({ items: 110 });
+    assert.equal(oil.quantity, 110);
+
+    oil.restock({ items: 20 });
+    assert.equal(oil.quantity, 130);
+  });
+
+  it.skip("should checkout items", function () {
+    var oil = new Product("Mobil 1: Advanced Full Synthetic");
+
+    oil.restock({ items: 10 });
+    assert.equal(oil.quantity, 10);
+
+    oil.checkout(2);
+    assert.equal(oil.quantity, 8);
+  });
 });
