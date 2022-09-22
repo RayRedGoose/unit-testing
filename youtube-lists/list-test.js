@@ -65,6 +65,21 @@ describe("List class", () => {
     assert.deepEqual(video1.savedBy, ["dalnoboy"]);
   });
 
+  it.skip("should upload a new video", () => {
+    var userList = new List("dalnoboy");
+
+    assert.equal(userList.uploaded.length, 0);
+
+    userList.uploadVideo();
+
+    assert.equal(userList.liked.length, 1);
+    assert.instanceOf(userList.liked[0], Video);
+    assert.equal(video.reactions.likes, 1);
+  });
+
+  // ** BACK TO VIDEO TESTS AND SOLVE LEFT TESTS**
+  // ** START THE BELOW TESTS ONLY AFTER VIDEO FULLY COMPLITED**
+
   it.skip("should add video to recommendations if video is hot", () => {
     var userList = new List("dalnoboy", ["cat", "development"]);
     var video = new Video({

@@ -41,6 +41,7 @@ describe("Video class", function () {
   });
 
   it.skip("should change likes and dislikes number", () => {
+    // You have to do not use if/else for this function
     var video = new Video({
       fileName: "Funny Cats",
       time: "2:45",
@@ -71,6 +72,8 @@ describe("Video class", function () {
     assert.equal(video.reactions.dislikes, 5);
   });
 
+  // ** START TO SOLVE THE NEXT TESTS ONLY IF **
+  // ** YOU SOLVE NECESSARY TESTS FROM LIST **
   it.skip("should be hot if there are more than 75% of likes", () => {
     var video = new Video({
       fileName: "Funny Cats",

@@ -1,3 +1,3 @@
 class Viewer {}
 
-module.exports = { Showtime };
+module.exports = { Viewer };
