@@ -70,11 +70,15 @@ describe("List class", () => {
 
     assert.equal(userList.uploaded.length, 0);
 
-    userList.uploadVideo();
+    userList.uploadVideo("Travel to SF", "2.43.11", ["travel"]);
 
-    assert.equal(userList.liked.length, 1);
-    assert.instanceOf(userList.liked[0], Video);
-    assert.equal(video.reactions.likes, 1);
+    assert.equal(userList.uploaded.length, 1);
+    assert.instanceOf(userList.uploaded[0], Video);
+    
+    var uploadedVideo = userList.uploaded[0];
+    assert.equal(uploadedVideo.title, "Travel to SF by dalnoboy");
+    assert.equal(uploadedVideo.time, "2.43.11");
+    assert.deepEqual(uploadedVideo.tags, ["travel"]);
   });
 
   // ** BACK TO VIDEO TESTS AND SOLVE LEFT TESTS**
